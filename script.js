@@ -1,6 +1,14 @@
 const display = document.getElementById('display');
-const btnclear = document.getElementById('clear');
-btnclear.addEventListener('click', ()=>window.location.reload());
+const btnClear = document.getElementById('clear');
+btnClear.addEventListener('click', ()=>window.location.reload());
+const btnDelete = document.getElementById('delete');
+btnDelete.addEventListener('click', ()=>display.removeChild(display.lastChild));
+
+function operation(){
+const numbers = document.querySelectorAll()
+
+}
+// const btnDelete 
 // display.textContent = 'Test'
 // display.addEventListener('')
 // const btnOne = document.getElementById('one') 
