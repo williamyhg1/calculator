@@ -19,6 +19,24 @@ btnDelete.addEventListener('click', () => {
 
 const operationBtns = document.querySelectorAll('[data-operator]')
 operationBtns.forEach(btn=>btn.addEventListener('click',()=>{
+    if(!previousOperand.innerText){
     previousOperand.innerText = currentOperand.innerText;
-    currentOperand.innerText =''
+    currentOperand.innerText =''} else {
+        switch(btn.innerText){
+            case '+':
+                previousOperand.innerText = parseInt(previousOperand.innerText)+parseInt(currentOperand.innerText);
+                break;
+            case '-':
+                previousOperand.innerText = parseInt(previousOperand.innerText)-parseInt(currentOperand.innerText);
+                break;
+            case '*':
+                previousOperand.innerText = parseInt(previousOperand.innerText)*parseInt(currentOperand.innerText);
+                break;
+            case '/':
+                previousOperand.innerText = parseInt(previousOperand.innerText)/parseInt(currentOperand.innerText);
+                break;
+        }
+        currentOperand.innerText = '';
+    }
+    
 }))
