@@ -6,11 +6,13 @@ body {
   display: flex;
   justify-content: center;
   margin: 10px;
+  background-image: linear-gradient(to bottom right, rgb(136, 245, 136), rgb(241, 241, 131), rgb(243, 139, 139),rgb(138, 138, 240), purple);
+  
 }
+
 #container {
   width: 600px;
   height: 880px;
-  background-color: bisque;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +23,7 @@ body {
 #display {
   height: 150px;
   width: 465px;
-  border: 3px solid grey;
+  border: 3px solid black;
   border-radius: 8px;
   font-size: 60px;
   display: flex;
@@ -46,7 +48,7 @@ body {
 #delete {
   height: 100px;
   width: 220px;
-  border: 3px solid grey;
+  border: 3px solid black;
   border-radius: 8px;
   font-size: 50px;
   display: flex;
@@ -58,7 +60,7 @@ body {
 #allclear {
   height: 100px;
   width: 220px;
-  border: 3px solid grey;
+  border: 3px solid black;
   border-radius: 8px;
   font-size: 50px;
   display: flex;
@@ -81,7 +83,7 @@ body {
   width: 100px;
   margin: 10px;
   box-sizing: border-box;
-  border: 3px solid grey;
+  border: 3px solid black;
   border-radius: 8px;
   font-size: 50px;
   display: flex;

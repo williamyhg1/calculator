@@ -25,16 +25,16 @@ operationBtns.forEach(btn=>btn.addEventListener('click',()=>{
     currentOperand.innerText =''} else {
         switch(btn.innerText){
             case '+':
-                previousOperand.innerText = parseInt(previousOperand.innerText)+parseInt(currentOperand.innerText);
+                previousOperand.innerText = parseFloat(previousOperand.innerText)+parseFloat(currentOperand.innerText);
                 break;
             case '-':
-                previousOperand.innerText = parseInt(previousOperand.innerText)-parseInt(currentOperand.innerText);
+                previousOperand.innerText = parseFloat(previousOperand.innerText)-parseFloat(currentOperand.innerText);
                 break;
             case '*':
-                previousOperand.innerText = parseInt(previousOperand.innerText)*parseInt(currentOperand.innerText);
+                previousOperand.innerText = parseFloat(previousOperand.innerText)*parseFloat(currentOperand.innerText);
                 break;
             case '/':
-                previousOperand.innerText = parseInt(previousOperand.innerText)/parseInt(currentOperand.innerText);
+                previousOperand.innerText = parseFloat(previousOperand.innerText)/parseFloat(currentOperand.innerText);
                 break;
         }
         currentOperand.innerText = '';
