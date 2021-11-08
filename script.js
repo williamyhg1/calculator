@@ -19,6 +19,7 @@ btnDelete.addEventListener('click', () => {
 
 const operationBtns = document.querySelectorAll('[data-operator]')
 operationBtns.forEach(btn=>btn.addEventListener('click',()=>{
+    if(!currentOperand.innerText)return;
     if(!previousOperand.innerText){
     previousOperand.innerText = currentOperand.innerText;
     currentOperand.innerText =''} else {
