@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
-    <div id='container'>
-        <div id="display">
-          <div data-previous-operand class='operand'></div>
-          <div data-current-operand class='operand'></div>
+  </head>
+  <body>
+    <div id="container">
+      <div id="display">
+        <div data-previous-operand class="operand"></div>
+        <div data-current-operand class="operand"></div>
+      </div>
 
-        </div>
+      <div id="deleteAndClear">
+        <div id="allclear">AC</div>
+        <div id="delete">Delete</div>
+      </div>
 
-        <div id='deleteAndClear'>
-            
-            <div id="allclear">AC</div>
-            <div id="delete">Delete</div>
-        </div>
+      <div id="operation">
+        <div data-number class="btn">1</div>
+        <div data-number class="btn">2</div>
+        <div data-number class="btn">3</div>
+        <div data-operator class="btn">/</div>
+        <div data-number class="btn">4</div>
+        <div data-number class="btn">5</div>
+        <div data-number class="btn">6</div>
+        <div data-operator class="btn">*</div>
+        <div data-number class="btn">7</div>
+        <div data-number class="btn">8</div>
+        <div data-number class="btn">9</div>
+        <div data-operator class="btn">-</div>
+        <div data-number class="btn">.</div>
+        <div data-number class="btn">0</div>
+        <div data-equals class="btn">=</div>
+        <div data-operator class="btn">+</div>
+      </div>
 
-        <div id="operation">
-            <div data-number class="btn">1</div>
-            <div data-number class="btn">2</div>
-            <div data-number class="btn">3</div>
-            <div data-operator class="btn">/</div>
-            <div data-number class="btn">4</div>
-            <div data-number class="btn">5</div>
-            <div data-number class="btn">6</div>
-            <div data-operator class="btn">*</div>
-            <div data-number class="btn">7</div>
-            <div data-number class="btn">8</div>
-            <div data-number class="btn">9</div>
-            <div data-operator class="btn">-</div>
-            <div data-number class="btn">.</div>
-            <div data-number class="btn">0</div>
-            <div data-equals class="btn">=</div>
-            <div data-operator class="btn">+</div>
-        </div>
-
-<footer style="font-size: 30px;">Copyright @ William Huang 2021</footer>
+      <footer style="font-size: 30px">Copyright @ William Huang 2021</footer>
     </div>
-    
-</body>
-
+  </body>
 </html>
