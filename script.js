@@ -67,7 +67,7 @@ function addOperationListeners() {
     btn.addEventListener("click", () => {
       if (
         previousOperand.textContent.includes("+") ||
-        previousOperand.textContent.includes("-") ||
+        previousOperand.textContent.slice(-1) === "-" ||
         previousOperand.textContent.includes("*") ||
         previousOperand.textContent.includes("/")
       ) {
