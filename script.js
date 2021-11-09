@@ -28,12 +28,18 @@ numberBtns.forEach((btn) =>
 const operationBtns = document.querySelectorAll('[data-operator]')
 
 function addOperationListeners(){
-operationBtns.forEach((btn)=>btn.addEventListener('click',()=>{
+
+    operationBtns.forEach((btn)=>btn.addEventListener('click',()=>{
     if(previousOperand.textContent.includes('+')||previousOperand.textContent.includes('-')||previousOperand.textContent.includes('*')||previousOperand.textContent.includes('/')){btn.removeEventListener('click')};
 
+    if(!currentOperand.textContent && previousOperand.textContent){
+        previousOperand.textContent += btn.textContent
+    }
+    if(currentOperand.textContent && !previousOperand.textContent){
     previousOperand.textContent = currentOperand.textContent
     previousOperand.textContent += btn.textContent;
     currentOperand.textContent = '';
+}
 }))
 }
 
@@ -41,13 +47,14 @@ addOperationListeners();
 
 const equalsBtn = document.querySelector('[data-equals]')
 equalsBtn.addEventListener('click',()=>{
-    if(previousOperand.textContent.slice(-1)==='+'){
+    let operator = previousOperand.textContent.slice(-1);
+    if(operator ==='+'){
         previousOperand.textContent = parseFloat(previousOperand.textContent) + parseFloat(currentOperand.textContent)
-    } else if (previousOperand.textContent.slice(-1)==='-'){
+    } else if (operator ==='-'){
         previousOperand.textContent = parseFloat(previousOperand.textContent) - parseFloat(currentOperand.textContent)
-    } else if (previousOperand.textContent.slice(-1)==='*'){
+    } else if (operator ==='*'){
         previousOperand.textContent = parseFloat(previousOperand.textContent) * parseFloat(currentOperand.textContent)
-    } else if (previousOperand.textContent.slice(-1)==='/'){
+    } else if (operator ==='/'){
         previousOperand.textContent = parseFloat(previousOperand.textContent) / parseFloat(currentOperand.textContent)
     }
     currentOperand.textContent = ''
