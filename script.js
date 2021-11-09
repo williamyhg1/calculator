@@ -1,5 +1,3 @@
-
-
 const previousOperand = document.querySelector("[data-previous-operand]");
 const currentOperand = document.querySelector("[data-current-operand]");
 
@@ -25,61 +23,78 @@ numberBtns.forEach((btn) =>
   })
 );
 
-const operationBtns = document.querySelectorAll('[data-operator]')
 
-function addOperationListeners(){
-
-    operationBtns.forEach((btn)=>btn.addEventListener('click',()=>{
-    if(previousOperand.textContent.includes('+')||previousOperand.textContent.includes('-')||previousOperand.textContent.includes('*')||previousOperand.textContent.includes('/')){btn.removeEventListener('click')};
-
-    if(!currentOperand.textContent && previousOperand.textContent){
-        previousOperand.textContent += btn.textContent
+function operation(){
+    let operator = previousOperand.textContent.slice(-1);
+    if (operator === "+") {
+      previousOperand.textContent =
+        Math.round(
+          (parseFloat(previousOperand.textContent) +
+            parseFloat(currentOperand.textContent)) *
+            10**9
+        ) /
+        10**9;
+    } else if (operator === "-") {
+      previousOperand.textContent =
+        Math.round(
+          (parseFloat(previousOperand.textContent) -
+            parseFloat(currentOperand.textContent)) *
+            10**9
+        ) /
+        10**9;
+    } else if (operator === "*") {
+      previousOperand.textContent =
+        Math.round(
+          parseFloat(previousOperand.textContent) *
+            parseFloat(currentOperand.textContent) *
+            10**9
+        ) /
+        10**9;
+    } else if (operator === "/") {
+      previousOperand.textContent =
+        Math.round(
+          (parseFloat(previousOperand.textContent) /
+            parseFloat(currentOperand.textContent)) *
+            10**9
+        ) /
+        10**9;
     }
-    if(currentOperand.textContent && !previousOperand.textContent){
-    previousOperand.textContent = currentOperand.textContent
-    previousOperand.textContent += btn.textContent;
-    currentOperand.textContent = '';
-}
-}))
+    currentOperand.textContent = "";
+  }
+
+
+const operationBtns = document.querySelectorAll("[data-operator]");
+
+function addOperationListeners() {
+  operationBtns.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      if (
+        previousOperand.textContent.includes("+") ||
+        previousOperand.textContent.includes("-") ||
+        previousOperand.textContent.includes("*") ||
+        previousOperand.textContent.includes("/")
+      ) {
+        if(!currentOperand.textContent ){
+        btn.removeEventListener("click");}
+      } 
+        if (currentOperand.textContent && previousOperand.textContent){
+        operation();
+      }
+
+      if (!currentOperand.textContent && previousOperand.textContent) {
+        previousOperand.textContent += btn.textContent;
+      }
+      if (currentOperand.textContent && !previousOperand.textContent) {
+        previousOperand.textContent = currentOperand.textContent;
+        previousOperand.textContent += btn.textContent;
+        currentOperand.textContent = "";
+      }
+    })
+  );
 }
 
 addOperationListeners();
 
-const equalsBtn = document.querySelector('[data-equals]')
-equalsBtn.addEventListener('click',()=>{
-    let operator = previousOperand.textContent.slice(-1);
-    if(operator ==='+'){
-        previousOperand.textContent = parseFloat(previousOperand.textContent) + parseFloat(currentOperand.textContent)
-    } else if (operator ==='-'){
-        previousOperand.textContent = parseFloat(previousOperand.textContent) - parseFloat(currentOperand.textContent)
-    } else if (operator ==='*'){
-        previousOperand.textContent = parseFloat(previousOperand.textContent) * parseFloat(currentOperand.textContent)
-    } else if (operator ==='/'){
-        previousOperand.textContent = parseFloat(previousOperand.textContent) / parseFloat(currentOperand.textContent)
-    }
-    currentOperand.textContent = ''
-   
-})
+const equalsBtn = document.querySelector("[data-equals]");
+equalsBtn.addEventListener("click", operation );
 
-
-
-
-// const equalsBtn = document.querySelector('[data-equals]')
-// equalsBtn.addEventListener('click',()=>{
-//     console.log('equals pressed')
-//     previousOperand.textContent= operate(previousOperand.textContent[-1],previousOperand.textContent,currentOperand.textContent)
-// })
-
-// function compute(){
-//     if (currentOperand.textContent === null) return
-//   if (currentOperation === '÷' && currentOperationScreen.textContent === '0') {
-//     alert("You can't divide by 0!")
-//     return
-//   }
-//   secondOperand = currentOperationScreen.textContent
-//   currentOperationScreen.textContent = (
-//     operate(currentOperation, firstOperand, secondOperand)
-//   )
-//   lastOperationScreen.textContent = `${firstOperand} ${currentOperation} ${secondOperand} =`
-//   currentOperation = null
-// }
