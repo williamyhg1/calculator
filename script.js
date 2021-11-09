@@ -3,8 +3,7 @@ const currentOperand = document.querySelector("[data-current-operand]");
 
 const allClearBtn = document.getElementById("allclear");
 allClearBtn.addEventListener("click", () => {
-  currentOperand.textContent = "";
-  previousOperand.textContent = "";
+  window.location.reload();
 });
 
 const deleteBtn = document.getElementById("delete");
@@ -23,45 +22,43 @@ numberBtns.forEach((btn) =>
   })
 );
 
-
-function operation(){
-    let operator = previousOperand.textContent.slice(-1);
-    if (operator === "+") {
-      previousOperand.textContent =
-        Math.round(
-          (parseFloat(previousOperand.textContent) +
-            parseFloat(currentOperand.textContent)) *
-            10**9
-        ) /
-        10**9;
-    } else if (operator === "-") {
-      previousOperand.textContent =
-        Math.round(
-          (parseFloat(previousOperand.textContent) -
-            parseFloat(currentOperand.textContent)) *
-            10**9
-        ) /
-        10**9;
-    } else if (operator === "*") {
-      previousOperand.textContent =
-        Math.round(
-          parseFloat(previousOperand.textContent) *
-            parseFloat(currentOperand.textContent) *
-            10**9
-        ) /
-        10**9;
-    } else if (operator === "/") {
-      previousOperand.textContent =
-        Math.round(
-          (parseFloat(previousOperand.textContent) /
-            parseFloat(currentOperand.textContent)) *
-            10**9
-        ) /
-        10**9;
-    }
-    currentOperand.textContent = "";
+function operation() {
+  let operator = previousOperand.textContent.slice(-1);
+  if (operator === "+") {
+    previousOperand.textContent =
+      Math.round(
+        (parseFloat(previousOperand.textContent) +
+          parseFloat(currentOperand.textContent)) *
+          10 ** 9
+      ) /
+      10 ** 9;
+  } else if (operator === "-") {
+    previousOperand.textContent =
+      Math.round(
+        (parseFloat(previousOperand.textContent) -
+          parseFloat(currentOperand.textContent)) *
+          10 ** 9
+      ) /
+      10 ** 9;
+  } else if (operator === "*") {
+    previousOperand.textContent =
+      Math.round(
+        parseFloat(previousOperand.textContent) *
+          parseFloat(currentOperand.textContent) *
+          10 ** 9
+      ) /
+      10 ** 9;
+  } else if (operator === "/") {
+    previousOperand.textContent =
+      Math.round(
+        (parseFloat(previousOperand.textContent) /
+          parseFloat(currentOperand.textContent)) *
+          10 ** 9
+      ) /
+      10 ** 9;
   }
-
+  currentOperand.textContent = "";
+}
 
 const operationBtns = document.querySelectorAll("[data-operator]");
 
@@ -74,10 +71,11 @@ function addOperationListeners() {
         previousOperand.textContent.includes("*") ||
         previousOperand.textContent.includes("/")
       ) {
-        if(!currentOperand.textContent ){
-        btn.removeEventListener("click");}
-      } 
-        if (currentOperand.textContent && previousOperand.textContent){
+        if (!currentOperand.textContent) {
+          btn.removeEventListener("click");
+        }
+      }
+      if (currentOperand.textContent && previousOperand.textContent) {
         operation();
       }
 
@@ -96,5 +94,4 @@ function addOperationListeners() {
 addOperationListeners();
 
 const equalsBtn = document.querySelector("[data-equals]");
-equalsBtn.addEventListener("click", operation );
-
+equalsBtn.addEventListener("click", operation);
